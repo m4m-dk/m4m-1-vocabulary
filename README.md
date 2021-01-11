@@ -1,6 +1,6 @@
 [![CI](https://github.com/m4m-dk/m4m-1-vocabulary/workflows/Sheet2RDF/badge.svg)](https://github.com/m4m-dk/m4m-1-vocabulary/actions?query=workflow%3ASheet2RDF)
 
-# m4m-1-vocabulary
+# workshop-1-controlled-vocabulary
 
 This repository contains forked automatic workflow [sheet2rdf](https://github.com/niva83/sheet2rdf), which:
 
