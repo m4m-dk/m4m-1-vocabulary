@@ -31,13 +31,18 @@ jobs:
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
-      - name: Conda Create
+      - name: Create conda enviroment
         shell: bash -l {0}
+        env:
+          CLIENT: ${{secrets.CLIENT}}
+          STORAGE: ${{secrets.STORAGE}}
+          FILE_NAME: ${{secrets.FILE_NAME}}
+          SHEET_ID: ${{secrets.SHEET_ID}}        
         run: |
           conda create -n sheet2rdf python=3.8 pandas openpyxl
           conda activate sheet2rdf
           pip install gsheets
-          conda list
+          python ./src/sheet2xls.py
 #       - name: Conda list
 #         shell: pwsh
 #         run: conda list          
