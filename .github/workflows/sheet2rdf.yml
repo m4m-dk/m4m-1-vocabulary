@@ -27,6 +27,7 @@ jobs:
         os: ["ubuntu-latest"]
         python-version: ["3.8"]    
     steps:
+      - uses: actions/checkout@v2    
       - uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
@@ -39,6 +40,9 @@ jobs:
           FILE_NAME: ${{secrets.FILE_NAME}}
           SHEET_ID: ${{secrets.SHEET_ID}}        
         run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git pull        
           conda create -n sheet2rdf python=3.8 pandas openpyxl
           conda activate sheet2rdf
           pip install gsheets
