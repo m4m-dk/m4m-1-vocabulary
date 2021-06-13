@@ -1,5 +1,5 @@
-ConceptScheme URI,http://ontology.deic.dk/cv/beer-variables/
-PREFIX,beer-vars,http://ontology.deic.dk/cv/beer-variables/
+ConceptScheme URI,http://ontology.deic.dk/cv/beer-ontology/
+PREFIX,beer-onto,http://ontology.deic.dk/cv/beer-ontology/
 PREFIX,pav,http://purl.org/pav/
 PREFIX,dct,http://purl.org/dc/terms/
 PREFIX,owl,http://www.w3.org/2002/07/owl#
@@ -16,12 +16,12 @@ pav:lastUpdatedOn,"The date of the last update of the vocabulary in form of YYYY
 
 
 Identifier,skos:prefLabel@en,"skos:altLabel(separator="","")",skos:definition@en,"dct:source(separator="","")","skos:broader(separator="","")","skos:closeMatch(separator="","")","skos:exactMatch(separator="","")","skos:broadMatch(separator="","")","skos:narrowMatch(separator="","")","skos:relatedMatch(separator="","")",owl:deprecated^^xsd:boolean,dct:isReplacedBy,skos:editorialNote@en,"dct:creator(separator="","")","dct:contributor(separator="","")"
-beer-vars:Deprecated,Deprecated,,This is a set of controlled terms which are deprecated.,,,, 
-beer-vars:,,,,,,, 
-beer-vars:
-beer-vars:
-beer-vars:
-beer-vars:
-beer-vars:
-beer-vars:
-beer-vars:
+beer-onto:Deprecated,Deprecated,,This is a set of controlled terms which are deprecated.,,,, 
+beer-onto:,,,,,,, 
+beer-onto:
+beer-onto:
+beer-onto:
+beer-onto:
+beer-onto:
+beer-onto:
+beer-onto:
