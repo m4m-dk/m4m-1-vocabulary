@@ -17,8 +17,8 @@ pav:lastUpdatedOn,"The date of the last update of the vocabulary in form of YYYY
 
 Identifier,skos:prefLabel@en,"skos:altLabel(separator="","")",skos:definition@en,"dct:source(separator="","")","skos:broader(separator="","")","skos:closeMatch(separator="","")","skos:exactMatch(separator="","")","skos:broadMatch(separator="","")","skos:narrowMatch(separator="","")","skos:relatedMatch(separator="","")",owl:deprecated^^xsd:boolean,dct:isReplacedBy,skos:editorialNote@en,"dct:creator(separator="","")","dct:contributor(separator="","")"
 beer-onto:Deprecated,Deprecated,,This is a set of controlled terms which are deprecated.,,,, 
-beer-onto:BeerVariables,Beer Variables,Beer related variables,,,,, 
-beer-onto:BeerSubjects,Beer Subjects,Beer related subjects
+beer-onto:BeerVariables,Beer Variables,,Beer related variables,,,, 
+beer-onto:BeerSubjects,Beer Subjects,,Beer related subjects
 beer-onto:BeerBreweries,Beer Breweries
 beer-onto:
 beer-onto:

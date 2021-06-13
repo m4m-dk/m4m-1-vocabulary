@@ -25,13 +25,13 @@ beer-onto:Deprecated a skos:Concept;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
 
 beer-onto:BeerVariables a skos:Concept;
-  skos:altLabel "Beer related variables"@en;
+  skos:definition "Beer related variables"@en;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
   skos:prefLabel "Beer Variables"@en;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
 
 beer-onto:BeerSubjects a skos:Concept;
-  skos:altLabel "Beer related subjects"@en;
+  skos:definition "Beer related subjects"@en;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
   skos:prefLabel "Beer Subjects"@en;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
