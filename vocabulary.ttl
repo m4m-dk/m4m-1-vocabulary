@@ -12,7 +12,8 @@
   pav:createdOn "The initial date of the vocabulary creation in form of YYYY-MM-DDTHH:mm:ss+timeZoneOffset (e.g., 2020-10-30T13:43:00+00:00)"@en;
   pav:lastUpdatedOn "The date of the last update of the vocabulary in form of YYYY-MM-DDTHH:mm:ss+timeZoneOffset (e.g., 2020-10-30T13:43:00+00:00)"@en;
   pav:version "Always provide the version of the vocabulary. You can use form majorChange.minorChange.bugFix (e.g., 1.0.1a)"@en;
-  skos:hasTopConcept <http://ontology.deic.dk/cv/beer-ontology/>, beer-onto:Deprecated;
+  skos:hasTopConcept <http://ontology.deic.dk/cv/beer-ontology/>, beer-onto:BeerBreweries,
+    beer-onto:BeerSubjects, beer-onto:BeerVariables, beer-onto:Deprecated;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
   skos:prefLable "A short name for your vocabulary"@en;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
@@ -21,4 +22,21 @@ beer-onto:Deprecated a skos:Concept;
   skos:definition "This is a set of controlled terms which are deprecated."@en;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
   skos:prefLabel "Deprecated"@en;
+  skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
+
+beer-onto:BeerVariables a skos:Concept;
+  skos:altLabel "Beer related variables"@en;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Beer Variables"@en;
+  skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
+
+beer-onto:BeerSubjects a skos:Concept;
+  skos:altLabel "Beer related subjects"@en;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Beer Subjects"@en;
+  skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
+
+beer-onto:BeerBreweries a skos:Concept;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Beer Breweries"@en;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
