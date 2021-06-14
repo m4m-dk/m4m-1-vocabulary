@@ -37,6 +37,7 @@ beer-onto:iso3166-2-name a owl:ObjectProperty;
   dct:source <https://en.wikipedia.org/wiki/ISO_3166-2>;
   rdfs:label "iso3166-2-name"@en;
   skos:definition "ISO 3166-2 naming convention"@en;
+  skos:exactMatch wikidata:Property:P300;
   skos:prefLabel "iso3166-2-name"@en .
 
 beer-onto:Deprecated a skos:Concept;
@@ -71,7 +72,6 @@ beer-onto:BeerBreweries a skos:Concept;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
 
 beer-onto:BeerBrewedLocation a skos:Concept;
-  skos:exactMatch wikidata:Property:P300;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
   skos:narrower beer-onto:California, beer-onto:Gotland, beer-onto:Harju, beer-onto:Ida-Viru,
     beer-onto:Mexico, beer-onto:MissingValue, beer-onto:Oslo, beer-onto:Rae, beer-onto:Stockholm,

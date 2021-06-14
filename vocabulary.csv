@@ -23,12 +23,12 @@ pav:lastUpdatedOn,2021-06-14T11:16+02:00
 
 
 Identifier,skos:prefLabel@en,"skos:altLabel(separator="","")",skos:definition@en,"dct:source(separator="","")","skos:broader(separator="","")","skos:closeMatch(separator="","")","skos:exactMatch(separator="","")","skos:broadMatch(separator="","")","skos:narrowMatch(separator="","")","skos:relatedMatch(separator="","")",owl:deprecated^^xsd:boolean,dct:isReplacedBy,skos:editorialNote@en,"dct:creator(separator="","")","dct:contributor(separator="","")",rdf:type,rdfs:label,beer-onto:iso3166-2-name
-beer-onto:iso3166-2-name,iso3166-2-name,,ISO 3166-2 naming convention,https://en.wikipedia.org/wiki/ISO_3166-2,,,,,,,,,,,,owl:ObjectProperty,iso3166-2-name
+beer-onto:iso3166-2-name,iso3166-2-name,,ISO 3166-2 naming convention,https://en.wikipedia.org/wiki/ISO_3166-2,,,wikidata:Property:P300,,,,,,,,,owl:ObjectProperty,iso3166-2-name
 beer-onto:Deprecated,Deprecated,,This is a set of controlled terms which are deprecated.,,,, 
 beer-onto:BeerVariables,Beer Variables,,Beer related variables,,,, 
 beer-onto:BeerType,Beer Type,,Beer types as defined by wikipedia
 beer-onto:BeerBreweries,Beer Breweries,,Brewery as written on the beer
-beer-onto:BeerBrewedLocation,Beer Brewed Location,,,,,,wikidata:Property:P300
+beer-onto:BeerBrewedLocation,Beer Brewed Location
 beer-onto:MissingValue,MissingValue,,"This represents a missing value, can be missing for any number of reasons",https://ena-docs.readthedocs.io/en/latest/submit/samples/missing-values.html,"beer-onto:BeerBreweries, beer-onto:BeerType, beer-onto:BeerBrewedLocation"
 beer-onto:A.LeCoq,A. Le Coq,,,,beer-onto:BeerBreweries,,wikidata:Q278905
 beer-onto:Pohjala,Põhjala,,,https://pohjalabeer.com/,beer-onto:BeerBreweries
