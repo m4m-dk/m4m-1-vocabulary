@@ -1,22 +1,43 @@
+@prefix beer: <https://rdf.ag/o/beer#> .
 @prefix beer-onto: <http://ontology.deic.dk/cv/beer-ontology/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pav: <http://purl.org/pav/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix wikidata: <https://www.wikidata.org/wiki/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://ontology.deic.dk/cv/beer-ontology/> a skos:Concept, skos:ConceptScheme;
-  dct:creator "Put ORCID no of the vocabulary creator, repeat this row for every additional creator."@en;
-  dct:description "Give a good defintion of this vocabulary, what it is, what is going to be use for, etc."@en;
-  dct:rights "State under what license this vocabulary is provided, preferably chose license from https://spdx.org/licenses/ , since SPDX.org provides machine-actionable licenses"@en;
-  dct:title "A good title for your vocabulary"@en;
-  pav:createdOn "The initial date of the vocabulary creation in form of YYYY-MM-DDTHH:mm:ss+timeZoneOffset (e.g., 2020-10-30T13:43:00+00:00)"@en;
-  pav:lastUpdatedOn "The date of the last update of the vocabulary in form of YYYY-MM-DDTHH:mm:ss+timeZoneOffset (e.g., 2020-10-30T13:43:00+00:00)"@en;
-  pav:version "Always provide the version of the vocabulary. You can use form majorChange.minorChange.bugFix (e.g., 1.0.1a)"@en;
-  skos:hasTopConcept <http://ontology.deic.dk/cv/beer-ontology/>, beer-onto:BeerBreweries,
-    beer-onto:BeerSubjects, beer-onto:BeerVariables, beer-onto:Deprecated;
-  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
-  skos:prefLable "A short name for your vocabulary"@en;
-  skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
+<http://ontology.deic.dk/cv/beer-ontology/> a skos:ConceptScheme;
+  dct:creator <https://orcid.org/0000-0001-5201-0268>, <https://orcid.org/0000-0002-3890-6620>,
+    <https://orcid.org/0000-0003-0485-089X>, <https://orcid.org/0000-0003-1172-3522>;
+  dct:description "This vocabulary is used to create a machine actionable dataset of beer and beer consumption, see data dictionary (https://docs.google.com/document/d/1aBXcrtrZ-rR01sa86JWyURH3xj9oj2uM4cogmvTaDuw/edit#)"@en;
+  dct:rights <https://spdx.org/licenses/CC-BY-4.0>;
+  dct:title "The PaRI beer vocabulary"@en;
+  pav:createdOn "2021-06-14T11:16+02:00"@en;
+  pav:lastUpdatedOn "2021-06-14T11:16+02:00"@en;
+  pav:version "0.1.0"@en;
+  skos:hasTopConcept beer-onto:BeerBrewedLocation, beer-onto:BeerBreweries, beer-onto:BeerType,
+    beer-onto:BeerVariables, beer-onto:Deprecated;
+  skos:prefLable "PaRI beer"@en .
+
+beer-onto:iso3166-2-name a owl:ObjectProperty;
+  dct:source <https://en.wikipedia.org/wiki/ISO_3166-2>;
+  rdfs:label "iso3166-2-name"@en;
+  skos:definition "ISO 3166-2 naming convention"@en;
+  skos:prefLabel "iso3166-2-name"@en .
 
 beer-onto:Deprecated a skos:Concept;
   skos:definition "This is a set of controlled terms which are deprecated."@en;
@@ -27,16 +48,233 @@ beer-onto:Deprecated a skos:Concept;
 beer-onto:BeerVariables a skos:Concept;
   skos:definition "Beer related variables"@en;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:narrower beer-onto:Addedflavouring, beer-onto:Alcoholpercentage;
   skos:prefLabel "Beer Variables"@en;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
 
-beer-onto:BeerSubjects a skos:Concept;
-  skos:definition "Beer related subjects"@en;
+beer-onto:BeerType a skos:Concept;
+  skos:definition "Beer types as defined by wikipedia"@en;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
-  skos:prefLabel "Beer Subjects"@en;
+  skos:narrower beer-onto:Ale, beer-onto:Gose, beer-onto:IndiaPaleAle, beer-onto:MissingValue,
+    beer-onto:Pilsner, beer-onto:Sour, beer-onto:Stout;
+  skos:prefLabel "Beer Type"@en;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
 
 beer-onto:BeerBreweries a skos:Concept;
+  skos:definition "Brewery as written on the beer"@en;
   skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:narrower beer-onto:7FjellBryggeri, beer-onto:A.LeCoq, beer-onto:AleSmith, beer-onto:CerveceriaModelo,
+    beer-onto:Enlitenol, beer-onto:GotlandsBryggeri, beer-onto:LagunitasBrewingCompany,
+    beer-onto:Lannabruk, beer-onto:MissingValue, beer-onto:Omnipollo, <http://ontology.deic.dk/cv/beer-ontology/OsloBrewingCo.>,
+    beer-onto:Pohjala, beer-onto:Purtse, beer-onto:Saku, beer-onto:Tanker, beer-onto:UppsalaBrygghus;
   skos:prefLabel "Beer Breweries"@en;
   skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
+
+beer-onto:BeerBrewedLocation a skos:Concept;
+  skos:exactMatch wikidata:Property:P300;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:narrower beer-onto:California, beer-onto:Gotland, beer-onto:Harju, beer-onto:Ida-Viru,
+    beer-onto:Mexico, beer-onto:MissingValue, beer-onto:Oslo, beer-onto:Rae, beer-onto:Stockholm,
+    beer-onto:Tartu, beer-onto:Uppsala, beer-onto:Vestland;
+  skos:prefLabel "Beer Brewed Location"@en;
+  skos:topConceptOf <http://ontology.deic.dk/cv/beer-ontology/> .
+
+beer-onto:MissingValue a skos:Concept;
+  dct:source <https://ena-docs.readthedocs.io/en/latest/submit/samples/missing-values.html>;
+  skos:broader beer-onto:BeerBrewedLocation, beer-onto:BeerBreweries, beer-onto:BeerType;
+  skos:definition "This represents a missing value, can be missing for any number of reasons"@en;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "MissingValue"@en .
+
+beer-onto:A.LeCoq a skos:Concept;
+  skos:broader beer-onto:BeerBreweries;
+  skos:exactMatch wikidata:Q278905;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "A. Le Coq"@en .
+
+beer-onto:Pohjala a skos:Concept;
+  dct:source <https://pohjalabeer.com/>;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Põhjala"@en .
+
+beer-onto:Purtse a skos:Concept;
+  dct:source <https://www.purtsepruulikoda.ee/en/brewery>;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Purtse"@en .
+
+beer-onto:Saku a skos:Concept;
+  dct:source <https://www.saku.ee/et/international/>;
+  skos:broader beer-onto:BeerBreweries;
+  skos:exactMatch wikidata:Q1851509;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Saku"@en .
+
+beer-onto:Tanker a skos:Concept;
+  dct:source <https://tanker.ee/?lang=en>;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Tanker"@en .
+
+beer-onto:CerveceriaModelo a skos:Concept;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Cervecería Modelo"@en .
+
+<http://ontology.deic.dk/cv/beer-ontology/OsloBrewingCo.> a skos:Concept;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Oslo Brewing Co."@en .
+
+beer-onto:7FjellBryggeri a skos:Concept;
+  dct:source <https://www.7fjellbryggeri.com>;
+  skos:altLabel "7 Fjell"@en;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "7 Fjell Bryggeri"@en .
+
+beer-onto:Enlitenol a skos:Concept;
+  dct:source <https://enliten.no/en/>;
+  skos:altLabel "ELØ"@en;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "En liten øl"@en .
+
+beer-onto:UppsalaBrygghus a skos:Concept;
+  dct:source <https://www.uppsalabrygghus.se/>;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Uppsala Brygghus"@en .
+
+beer-onto:GotlandsBryggeri a skos:Concept;
+  skos:broader beer-onto:BeerBreweries;
+  skos:exactMatch wikidata:Q10507678;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Gotlands Bryggeri"@en .
+
+beer-onto:Lannabruk a skos:Concept;
+  dct:source <https://lannadryckeshandel.se/>;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Lännabruk"@en .
+
+beer-onto:Omnipollo a skos:Concept;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Omnipollo"@en .
+
+beer-onto:LagunitasBrewingCompany a skos:Concept;
+  skos:broader beer-onto:BeerBreweries;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Lagunitas Brewing Company"@en .
+
+beer-onto:AleSmith a skos:Concept;
+  skos:broader beer-onto:BeerBreweries;
+  skos:exactMatch wikidata:Q4714043;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "AleSmith"@en .
+
+beer-onto:Alcoholpercentage a skos:Concept;
+  skos:broader beer-onto:BeerVariables;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Alcohol percentage"@en .
+
+beer-onto:Addedflavouring a skos:Concept;
+  skos:broader beer-onto:BeerVariables;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Added flavouring"@en .
+
+beer-onto:Ale a skos:Concept;
+  skos:broader beer-onto:BeerType;
+  skos:exactMatch beer:Ale;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Ale"@en .
+
+beer-onto:Sour a skos:Concept;
+  skos:broader beer-onto:BeerType;
+  skos:exactMatch beer:SourBeer;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Sour"@en .
+
+beer-onto:Gose a skos:Concept;
+  dct:source <https://en.wikipedia.org/wiki/Gose>;
+  skos:broader beer-onto:BeerType;
+  skos:exactMatch wikidata:Q561987;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Gose"@en .
+
+beer-onto:Pilsner a skos:Concept;
+  skos:broader beer-onto:BeerType;
+  skos:exactMatch beer:Pilsner;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Pilsner"@en .
+
+beer-onto:IndiaPaleAle a skos:Concept;
+  dct:source <https://en.wikipedia.org/wiki/India_pale_ale>;
+  skos:broader beer-onto:BeerType;
+  skos:exactMatch beer:IndiaPaleAle, wikidata:Q1543214;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "IndiaPaleAle"@en .
+
+beer-onto:Stout a skos:Concept;
+  skos:broader beer-onto:BeerType;
+  skos:exactMatch beer:Stout;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Stout"@en .
+
+beer-onto:Tartu a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Tartu"@en .
+
+beer-onto:Harju a skos:Concept;
+  beer-onto:iso3166-2-name "EE-37"@en;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Harju"@en .
+
+beer-onto:Ida-Viru a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Ida-Viru"@en .
+
+beer-onto:Rae a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Rae"@en .
+
+beer-onto:Mexico a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Mexico"@en .
+
+beer-onto:Oslo a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Oslo"@en .
+
+beer-onto:Vestland a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Vestland"@en .
+
+beer-onto:Uppsala a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Uppsala"@en .
+
+beer-onto:Gotland a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Gotland"@en .
+
+beer-onto:Stockholm a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "Stockholm"@en .
+
+beer-onto:California a skos:Concept;
+  skos:broader beer-onto:BeerBrewedLocation;
+  skos:inScheme <http://ontology.deic.dk/cv/beer-ontology/>;
+  skos:prefLabel "California"@en .
